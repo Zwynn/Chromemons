@@ -21,7 +21,18 @@ function turnOrder(a: Chromemon, b: Chromemon): Chromemon[] {
 export { turnOrder };
 
 function dmgCalc(attacker: Chromemon, defender: Chromemon, moveIndex: number) {
+    const move = attacker.moves[moveIndex];
+    let atkStat: number;    
+    if (move.category === "Phy") {
 
-
-
+        atkStat = attacker.atk;
+        return; // Status-Moves verursachen keinen Schaden
+    }
+    else{
+        atkStat = attacker.spAtk;
+    }
+    const potDmg = move.pwr;
+    const defStat = defender.def;
+    const dmg = Math.floor(potDmg + atkStat - defStat);
+    defender.hp -=  dmg > 0 ? dmg : 1;                          // Minimum Schaden ist 1
 }  
