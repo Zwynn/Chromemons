@@ -1,4 +1,4 @@
-import type { Move } from "./expo";
+import type { Move } from "../expo";
 
 export const Moves: Record<string, Move> = {
     "Body Slam": {
