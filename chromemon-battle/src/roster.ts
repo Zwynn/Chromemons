@@ -195,3 +195,19 @@ const libelle: Chromemon = {
     moves: [Moves["Dragon Pulse"], Moves["Acoustic Wave"], Moves["Fly"], Moves["Quick Attack"]]
 }
 
+export const roster = {
+     fatlax, chichaku, glurak, gregs, zamazenta, scherox, exploud, legday, grimmsnarl, rajang, agumon, gabumon, ifrit, bahamut, megaArbok, libelle 
+    };
+
+export function playerSelect() {
+    let playerRoster = [];
+    let givenRoster = Object.values(roster);
+    while (playerRoster.length < 3) {
+        alert("Select a Chromemon for your roster:\n" +
+            Object.values(roster).map((mon, index) => `${index + 1}: ${mon.name}`).join('\n'));
+        let selection: string | null = prompt("Enter the number of your choice:");
+        playerRoster.push(givenRoster[parseInt(selection!) - 1]);        //parseIn braucht das !. In Zukunft muss etwas gegen NaN eingabaut werden
+
+       
+    }
+};
